@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+<!--        {% load static %}-->
+<!--        <link rel="stylesheet" href="{% static '../static/style.css' %}">-->
+
+        <title>Bolos</title>
+    </head>
+    <body>
+        <h2 class="container bg-dark text-light p-3">Professores</h2>
+        <!--    Inicia um for para cada Bolo na lista Bolos-->
+        <div class="teste">
+            {% for Professor in Professor %} <!-- Acessa o identificador Bolo
+            do dicionário enviado pelo view, para acessar bolos adicionados -->
+            <div class="container p-1 teste"> <!-- Adiciona mais um item na lista -->
+                <b>{{ Professor.Funcionario }}</b> <!-- Exibe o bolo do loop atual -->
+            </div>
+            <div class="container bg-dark text-light p-3">
+                <b>Numero Crachá: </b> {{ Professor.numero_cracha }} <!-- Exibe o valor -->
+                <br><b>Materia: </b> {{ Professor.Materia }} <!-- Exibe os detalhes do bolo -->
+            </div>
+            {% endfor %} <!-- Finaliza o for -->
+        </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

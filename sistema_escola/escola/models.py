@@ -20,19 +20,6 @@ class Funcionario(models.Model):
         return self.nome_funcionario
 
 
-# CRIANDO A TABELA SERIE
-class Serie(models.Model):
-    ID_Serie = models.AutoField(primary_key=True)
-    nome_serie = models.CharField(max_length=45)
-
-    class Meta:
-        db_table = 'serie'
-
-
-    def __str__(self):
-        return self.nome_serie
-
-
 # CRIANDO A TABELA MATERIA
 class Materia(models.Model):
     ID_Materia = models.AutoField(primary_key=True)
@@ -42,7 +29,7 @@ class Materia(models.Model):
         db_table = 'materia'
 
 
-    def __str__(self):
+    def __str__(self):  # Permite exibir uma String como identificação
         return self.nome_materia
 
 
@@ -50,15 +37,15 @@ class Materia(models.Model):
 class Professor(models.Model):
     ID_Professor = models.AutoField(primary_key=True)
     numero_cracha = models.CharField(max_length=45)
-    FK_Func_Prof = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-    FK_Materia = models.ManyToManyField(Materia)
+    Funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+    Materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'professor'
 
 
     def __str__(self):
-        return self.FK_Func_Prof
+        return self.Funcionario.nome_funcionario
 
 
 # CRIANDO A TABELA COORDENADOR
@@ -79,7 +66,6 @@ class Coordenador(models.Model):
 class Turma(models.Model):
     ID_Turma = models.AutoField(primary_key=True)
     letra_turma = models.CharField(max_length=45)
-    FK_Serie = models.ForeignKey(Serie, on_delete=models.CASCADE)
     FK_Coordenador = models.ForeignKey(Coordenador, on_delete=models.CASCADE)
     FK_Prof_Turma = models.ManyToManyField(Professor)
 

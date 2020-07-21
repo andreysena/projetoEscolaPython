@@ -10,7 +10,7 @@ class Funcionario(models.Model):
     cpf = models.CharField(max_length=45)
     rg = models.CharField(max_length=45)
     telefone = models.CharField(max_length=45)
-    salario = models.DecimalField(max_digits=5, decimal_places=2)
+    salario = models.DecimalField(max_digits=7, decimal_places=2)
 
     class Meta:
         db_table = 'funcionario'
@@ -36,7 +36,7 @@ class Materia(models.Model):
 # CRIANDO A TABELA PROFESSOR
 class Professor(models.Model):
     ID_Professor = models.AutoField(primary_key=True)
-    numero_cracha = models.CharField(max_length=45)
+    numero_aulas = models.IntegerField()
     Funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     Materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
 

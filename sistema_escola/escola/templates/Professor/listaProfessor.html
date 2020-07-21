@@ -10,20 +10,34 @@
 <!--        {% load static %}-->
 <!--        <link rel="stylesheet" href="{% static '../static/style.css' %}">-->
 
-        <title>Bolos</title>
+        <title>Professores</title>
     </head>
     <body>
-        <h2 class="container bg-dark text-light p-3">Professores</h2>
-        <!--    Inicia um for para cada Bolo na lista Bolos-->
+        <div class="container bg-dark text-light p-3 clearfix">
+            <h2 class="float-left">Professores</h2>
+            <a href="{% url 'url_cadastro' %}">
+                <button type="submit" class="btn btn-primary float-right">
+                    Adicionar professor
+                </button>
+            </a>
+        </div>
         <div class="teste">
-            {% for Professor in Professor %} <!-- Acessa o identificador Bolo
-            do dicionário enviado pelo view, para acessar bolos adicionados -->
-            <div class="container p-1 teste"> <!-- Adiciona mais um item na lista -->
-                <b>{{ Professor.Funcionario }}</b> <!-- Exibe o bolo do loop atual -->
+            <!--    Inicia um for para cada Professor na lista Professor-->
+            {% for Professor in Professor %} <!-- Acessa o identificador Professor
+            do dicionário enviado pelo view, para acessar professores adicionados -->
+            <div class="bg-success text-dark container p-1"> <!-- Adiciona mais um item na lista -->
+                <b>{{ Professor.Funcionario }}</b> <!-- Exibe o professor do loop atual -->
             </div>
             <div class="container bg-dark text-light p-3">
-                <b>Numero Crachá: </b> {{ Professor.numero_cracha }} <!-- Exibe o valor -->
-                <br><b>Materia: </b> {{ Professor.Materia }} <!-- Exibe os detalhes do bolo -->
+                <b>Numero de Aulas: </b> {{ Professor.numero_aulas }}
+                <br><b>Materia: </b> {{ Professor.Materia }}
+                <br>
+                <a href="{% url 'url_atualizar' Professor.ID_Professor %}">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </a>
+                <a href="{% url 'url_deletar' Professor.ID_Professor %}">
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                </a>
             </div>
             {% endfor %} <!-- Finaliza o for -->
         </div>

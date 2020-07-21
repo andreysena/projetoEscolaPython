@@ -7,4 +7,4 @@ class ProfForm(ModelForm):
 
     class Meta:
         model = Professor
-        fields = ['numero_cracha', 'Funcionario', 'Materia']
+        fields = ['numero_aulas', 'Funcionario', 'Materia']

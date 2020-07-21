@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     {% load bootstrap %}
-    <title>Home</title>
+    <title>Cadastro de Professor</title>
     <!--BootStrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -18,7 +18,7 @@
             <div class="form-row ">
                 {% csrf_token %}
                 <div class="form-group col-md-3">
-                    <p>{{ form.numero_cracha|bootstrap }}</p>
+                    <p>{{ form.numero_aulas|bootstrap }}</p>
                 </div>
 
                 <div class="form-group col-md-4">

@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from escola.views import cadprof, listaprof
+from escola.views import cadprof, listaprof, altprof, delprof
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('listaProf/', listaprof, name="url_listagem"),
+    path('', listaprof, name="url_listagem"),
     path('cadProfessor/', cadprof, name="url_cadastro"),
+    path('altProfessor/<int:pk>', altprof, name="url_atualizar"),
+    path('delProfessor/<int:pk>', delprof, name="url_deletar"),
 
 ]

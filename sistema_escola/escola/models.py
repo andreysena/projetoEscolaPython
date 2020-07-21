@@ -51,8 +51,7 @@ class Professor(models.Model):
 # CRIANDO A TABELA COORDENADOR
 class Coordenador(models.Model):
     ID_Coordenador = models.AutoField(primary_key=True)
-    numero_cracha = models.CharField(max_length=45)
-    FK_Func_Cood = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+    Funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'coordenador'
@@ -66,8 +65,8 @@ class Coordenador(models.Model):
 class Turma(models.Model):
     ID_Turma = models.AutoField(primary_key=True)
     letra_turma = models.CharField(max_length=45)
-    FK_Coordenador = models.ForeignKey(Coordenador, on_delete=models.CASCADE)
-    FK_Prof_Turma = models.ManyToManyField(Professor)
+    Coordenador = models.ForeignKey(Coordenador, on_delete=models.CASCADE)
+    Professores = models.ManyToManyField(Professor)
 
     class Meta:
         db_table = 'turma'
@@ -86,7 +85,7 @@ class Aluno(models.Model):
     cpf = models.CharField(max_length=45)
     rg = models.CharField(max_length=45)
     telefone = models.CharField(max_length=45)
-    FK_Turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
+    Turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'aluno'

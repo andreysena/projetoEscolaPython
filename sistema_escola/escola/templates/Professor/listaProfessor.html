@@ -15,7 +15,7 @@
     <body>
         <div class="container bg-dark text-light p-3 clearfix">
             <h2 class="float-left">Professores</h2>
-            <a href="{% url 'url_cadastro' %}">
+            <a href="{% url 'url_cadastroProf' %}">
                 <button type="submit" class="btn btn-primary float-right">
                     Adicionar professor
                 </button>
@@ -32,10 +32,10 @@
                 <b>Numero de Aulas: </b> {{ Professor.numero_aulas }}
                 <br><b>Materia: </b> {{ Professor.Materia }}
                 <br>
-                <a href="{% url 'url_atualizar' Professor.ID_Professor %}">
+                <a href="{% url 'url_atualizarProf' Professor.ID_Professor %}">
                     <button type="submit" class="btn btn-primary">Editar</button>
                 </a>
-                <a href="{% url 'url_deletar' Professor.ID_Professor %}">
+                <a href="{% url 'url_deletaProf' Professor.ID_Professor %}">
                     <button type="submit" class="btn btn-danger">Deletar</button>
                 </a>
             </div>

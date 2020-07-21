@@ -19,9 +19,9 @@ from escola.views import cadprof, listaprof, altprof, delprof
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', listaprof, name="url_listagem"),
-    path('cadProfessor/', cadprof, name="url_cadastro"),
-    path('altProfessor/<int:pk>', altprof, name="url_atualizar"),
-    path('delProfessor/<int:pk>', delprof, name="url_deletar"),
+    path('listaProfessor/', listaprof, name="url_listagemProf"),
+    path('cadProfessor/', cadprof, name="url_cadastroProf"),
+    path('altProfessor/<int:pk>', altprof, name="url_atualizarProf"),
+    path('delProfessor/<int:pk>', delprof, name="url_deletaProf"),
 
 ]

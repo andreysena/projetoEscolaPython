@@ -5,12 +5,16 @@ from .models import Funcionario, Materia, Professor, Coordenador, Turma, Aluno
 from .form import FuncionairoForm, MateriaForm, ProfessorForm, CoordenadorForm, TurmaForm, AlunoForm
 
 
+def mostrarindex(request):
+    return render(request, "Home/index.html")
+
+
 ########################### FUNÇÕES PARA REALIZAR O CRUD DE FUNCIONÁRIO ###########################
 
 
 def listafunc(request):
     data = {}
-    data["Funcionario"] = Professor.objects.all()
+    data["Funcionario"] = Funcionario.objects.all()
     return render(request, "Funcionario/listaFuncionario.html", data)
 
 
@@ -79,7 +83,7 @@ def altmat(request, pk):
     return render(request, "Materia/cadMateria.html", data)
 
 
-def delfunc(request, pk):
+def delmat(request, pk):
     materia = Funcionario.objects.get(pk=pk)
     materia.delete()
     return redirect('url_listagemMat')
@@ -270,7 +274,7 @@ def cadaluno(request):
 def altaluno(request, pk):
     data = {}
     aluno = Aluno.objects.get(pk=pk)
-    form = AlunoForm(request.POST or None, instance=Aluno)
+    form = AlunoForm(request.POST or None, instance=aluno)
 
     if form.is_valid():
         form.save()

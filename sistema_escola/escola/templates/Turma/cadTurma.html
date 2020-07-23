@@ -11,7 +11,7 @@
         {% load static %}
         <link rel="stylesheet" href="{% static '../static/estilo/style.css' %}">
 
-        <title>Cadastro de Professores</title>
+        <title>Cadastro de Turma</title>
     </head>
     <body>
         <header class="clearfix">
@@ -66,7 +66,7 @@
             <div class="container-fluid">
                 <div class="row barra-t px-5 py-3">
                     <div class="col-12">
-                        <h3 class="nome-t">Cadastrar Professores</h3>
+                        <h3 class="nome-t">Cadastrar Turma</h3>
                     </div>
                 </div>
             </div>
@@ -75,18 +75,18 @@
                     <div class="form-row justify-content-center">
                         {% csrf_token %}
                         <div class="form-group col-lg-3 col-md-4  caixa-f m-1 p-2">
-                            <label class="label-f">Numero de aulas:</label>
-                            <p>{{ form.numero_de_aulas }}</p>
+                            <label class="label-f">Turma:</label>
+                            <p>{{ form.letra_da_turma }}</p>
                         </div>
 
                         <div class="form-group col-md-3 caixa-f m-1 p-2">
-                            <label class="label-f">Funcionário:</label>
-                            <p>{{ form.Funcionario }}</p>
+                            <label class="label-f">Coordenador:</label>
+                            <p>{{ form.Coordenador }}</p>
                         </div>
 
                         <div class="form-group col-md-3 caixa-f m-1 p-2">
-                            <label class="label-f">Matéria:</label>
-                            <p>{{ form.Materia }}</p>
+                            <label class="label-f">Professores:</label>
+                            <p>{{ form.Professores }}</p>
                         </div>
                     </div>
                     <div class="row justify-content-center mt-3">

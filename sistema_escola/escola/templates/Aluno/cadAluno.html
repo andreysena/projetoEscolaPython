@@ -11,12 +11,12 @@
         {% load static %}
         <link rel="stylesheet" href="{% static '../static/estilo/style.css' %}">
 
-        <title>Cadastro de Professores</title>
+        <title>Cadastro de Alunos</title>
     </head>
     <body>
         <header class="clearfix">
             <figure class="figure pt-3 pl-3 logo">
-                <a href="/"><img src="{% static '../static/img/pythonlogo.png' %}" class="figure-img img-fluid rounded float-left" alt="Logo Philos Python"></a>
+                <a href="/"><img src="{% static 'img/pythonlogo.png' %}" class="figure-img img-fluid rounded float-left" alt="Logo Philos Python"></a>
             </figure>
             <div class="">
                 <h5 class="text-center title-1 pt-4">Seja Bem-vindo ao sistema da</h5>
@@ -66,7 +66,7 @@
             <div class="container-fluid">
                 <div class="row barra-t px-5 py-3">
                     <div class="col-12">
-                        <h3 class="nome-t">Cadastrar Professores</h3>
+                        <h3 class="nome-t">Cadastrar Alunos</h3>
                     </div>
                 </div>
             </div>
@@ -75,19 +75,40 @@
                     <div class="form-row justify-content-center">
                         {% csrf_token %}
                         <div class="form-group col-lg-3 col-md-4  caixa-f m-1 p-2">
-                            <label class="label-f">Numero de aulas:</label>
-                            <p>{{ form.numero_de_aulas }}</p>
+                            <label class="label-f">Nome de aluno:</label>
+                            <p>{{ form.nome_do_aluno }}</p>
                         </div>
 
                         <div class="form-group col-md-3 caixa-f m-1 p-2">
-                            <label class="label-f">Funcionário:</label>
-                            <p>{{ form.Funcionario }}</p>
+                            <label class="label-f">Matrícula:</label>
+                            <p>{{ form.matricula }}</p>
                         </div>
 
                         <div class="form-group col-md-3 caixa-f m-1 p-2">
-                            <label class="label-f">Matéria:</label>
-                            <p>{{ form.Materia }}</p>
+                            <label class="label-f">Data de Nasc.:</label>
+                            <p>{{ form.data_de_nascimento }}</p>
                         </div>
+
+                        <div class="form-group col-md-3 caixa-f m-1 p-2">
+                            <label class="label-f">CPF:</label>
+                            <p>{{ form.cpf }}</p>
+                        </div>
+
+                        <div class="form-group col-md-3 caixa-f m-1 p-2">
+                            <label class="label-f">RG:</label>
+                            <p>{{ form.rg }}</p>
+                        </div>
+
+                        <div class="form-group col-md-3 caixa-f m-1 p-2">
+                            <label class="label-f">Telefone:</label>
+                            <p>{{ form.telefone }}</p>
+                        </div>
+
+                        <div class="form-group col-md-3 caixa-f m-1 p-2">
+                            <label class="label-f">Turma:</label>
+                            <p>{{ form.Turma }}</p>
+                        </div>
+
                     </div>
                     <div class="row justify-content-center mt-3">
                         <button type="submit" class="btn btn-success mb-5 mr-1">Salvar</button>

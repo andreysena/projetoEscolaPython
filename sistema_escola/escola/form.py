@@ -7,21 +7,21 @@ class FuncionairoForm(ModelForm):
 
     class Meta:
         model = Funcionario
-        fields = ['nome_funcionario', 'dt_nasc', 'cpf', 'rg', 'telefone', 'salario']
+        fields = ['nome_do_funcionario', 'data_de_nascimento', 'cpf', 'rg', 'telefone', 'salario']
 
 
 class MateriaForm(ModelForm):
 
     class Meta:
         model = Materia
-        fields = ["nome_materia"]
+        fields = ["nome_da_materia"]
 
 
 class ProfessorForm(ModelForm):
 
     class Meta:
         model = Professor
-        fields = ['numero_aulas', 'Funcionario', 'Materia']
+        fields = ['numero_de_aulas', 'Funcionario', 'Materia']
 
 
 class CoordenadorForm(ModelForm):
@@ -35,11 +35,11 @@ class TurmaForm(ModelForm):
 
     class Meta:
         model = Turma
-        fields = ['letra_turma', 'Coordenador', 'Professores']
+        fields = ['letra_da_turma', 'Coordenador', 'Professores']
 
 
 class AlunoForm(ModelForm):
 
     class Meta:
         model = Aluno
-        fields = ['nome_aluno', 'matricula', 'dt_nasc', 'cpf', 'rg', 'telefone', 'Turma']
+        fields = ['nome_do_aluno', 'matricula', 'data_de_nascimento', 'cpf', 'rg', 'telefone', 'Turma']

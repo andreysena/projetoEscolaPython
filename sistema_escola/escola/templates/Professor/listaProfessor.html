@@ -7,42 +7,109 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
               crossorigin="anonymous">
-<!--        {% load static %}-->
-<!--        <link rel="stylesheet" href="{% static '../static/style.css' %}">-->
+        {% load static %}
+        <link rel="stylesheet" href="{% static '../static/estilo/style.css' %}">
 
-        <title>Professores</title>
+        <title>Listagem de Professores</title>
     </head>
     <body>
-        <div class="container bg-dark text-light p-3 clearfix">
-            <h2 class="float-left">Professores</h2>
-            <a href="{% url 'url_cadastroProf' %}">
-                <button type="submit" class="btn btn-primary float-right">
-                    Adicionar professor
-                </button>
-            </a>
-        </div>
-        <div class="teste">
-            <!--    Inicia um for para cada Professor na lista Professor-->
-            {% for Professor in Professor %} <!-- Acessa o identificador Professor
-            do dicionário enviado pelo view, para acessar professores adicionados -->
-            <div class="bg-success text-dark container p-1"> <!-- Adiciona mais um item na lista -->
-                <b>{{ Professor.Funcionario }}</b> <!-- Exibe o professor do loop atual -->
+        <header class="clearfix">
+            <figure class="figure pt-3 pl-3 logo">
+                <a href="/"><img src="{% static '../static/img/pythonlogo.png' %}" class="figure-img img-fluid rounded float-left" alt="Logo Philos Python"></a>
+            </figure>
+            <div class="">
+                <h5 class="text-center title-1 pt-4">Seja Bem-vindo ao sistema da</h5>
+                <h1 class="text-center title-2 pb-4">Escola Técnica Philos Python</h1>
             </div>
-            <div class="container bg-dark text-light p-3">
-                <b>Numero de Aulas: </b> {{ Professor.numero_aulas }}
-                <br><b>Materia: </b> {{ Professor.Materia }}
-                <br>
-                <a href="{% url 'url_atualizarProf' Professor.ID_Professor %}">
-                    <button type="submit" class="btn btn-primary">Editar</button>
-                </a>
-                <a href="{% url 'url_deletaProf' Professor.ID_Professor %}">
-                    <button type="submit" class="btn btn-danger">Deletar</button>
-                </a>
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-light teste">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse teste" id="conteudoNavbarSuportado">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CADASTRAR
+                                </a>
+                                <div class="dropdown-menu m-color" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'url_cadastroFunc' %}">Funcionário</a>
+                                    <a class="dropdown-item" href="{% url 'url_cadastroProf' %}">Professor</a>
+                                    <a class="dropdown-item" href="{% url 'url_cadastroCoord' %}">Coordenador</a>
+                                    <a class="dropdown-item" href="{% url 'url_cadastroMat' %}">Matéria</a>
+                                    <a class="dropdown-item" href="{% url 'url_cadastroTurma' %}">Turma</a>
+                                    <a class="dropdown-item" href="{% url 'url_cadastroAluno' %}">Aluno</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    LISTAR - ALTERAR - DELETAR
+                                </a>
+                                <div class="dropdown-menu m-color" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'url_listagemFunc' %}">Funcionário</a>
+                                    <a class="dropdown-item" href="{% url 'url_listagemProf' %}">Professor</a>
+                                    <a class="dropdown-item" href="{% url 'url_listagemCoord' %}">Coordenador</a>
+                                    <a class="dropdown-item" href="{% url 'url_listagemMat' %}">Matéria</a>
+                                    <a class="dropdown-item" href="{% url 'url_listagemTurma' %}">Turma</a>
+                                    <a class="dropdown-item" href="{% url 'url_listagemAluno' %}">Aluno</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-            {% endfor %} <!-- Finaliza o for -->
-        </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        </header>
+
+        <main class="mb-5">
+            <div class="container-fluid ">
+                <div class="row barra-t px-5 py-3 justify-content-center">
+                    <h3 class="col-md-6 col-sm-5 col-12 nome-t">Lista de Professores</h3>
+                    <div class="col-md-3 col-lg-4 col-sm-2"></div>
+                    <a href="{% url 'url_cadastroProf' %}" class="">
+                        <button type="submit" class="btn btn-warning ">
+                            Adicionar professor
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    {% for Professor in Professor %}
+                    <div class="col-md-3 text-center mt-4 mb-2 m-2">
+                        <div class="items-l mb-3">
+                            <h5 class="nome-l p-1">{{ Professor.Funcionario }}</h5>
+                            <b>Número de Aulas: {{ Professor.numero_de_aulas}}</b><br>
+                            <b>Matéria: {{ Professor.Materia }}</b>
+                            <div class="row justify-content-center pt-3 p-2">
+                                <div class="col-md-6 col-6">
+                                    <a href="{% url 'url_atualizarProf' Professor.ID_Professor %}">
+                                        <img type="submit" src="{% static '../static/img/edit.png' %}" class="btn-img">
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <a href="{% url 'url_deletaProf' Professor.ID_Professor %}">
+                                        <img type="submit" src="{% static '../static/img/delete.png' %}" class="btn-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </main>
+
+        <footer class="container-fluid fixed-bottom">
+            <div class="row justify-content-center">
+                <p class="footer-p mt-3">2º DSN | 2020 - SenAbreu ©</p>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
 </html>
